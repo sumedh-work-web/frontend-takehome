@@ -1,0 +1,68 @@
+{
+  "id": "happy",
+  "label": "Happy path",
+  "duration": 360,
+  "buyer": {
+    "name": "Maya Chen",
+    "company": "Northstar Analytics"
+  },
+  "events": [
+    { "id": "happy-001", "t": 3, "type": "phase_change", "phase": "intro" },
+    { "id": "happy-002", "t": 8, "type": "transcript", "speaker": "rep", "text": "Thanks for making time today. I saw your team is expanding the enterprise segment." },
+    { "id": "happy-003", "t": 19, "type": "transcript", "speaker": "buyer", "text": "We are trying to ramp new account executives faster without losing consistency." },
+    { "id": "happy-004", "t": 33, "type": "phase_change", "phase": "discovery" },
+    { "id": "happy-005", "t": 48, "type": "talk_ratio", "repPercent": 44, "buyerPercent": 56 },
+    {
+      "id": "happy-006",
+      "t": 72,
+      "type": "suggestion",
+      "suggestionType": "missed_question",
+      "question": "Ask how they measure ramp quality today.",
+      "whyItMatters": "The answer can expose whether speed, consistency, or manager visibility matters most."
+    },
+    { "id": "happy-007", "t": 96, "type": "transcript", "speaker": "buyer", "text": "We have Gong, but it mostly helps after the call. During onboarding, reps still need live guidance." },
+    {
+      "id": "happy-008",
+      "t": 101,
+      "type": "suggestion",
+      "suggestionType": "battle_card",
+      "competitor": "Gong",
+      "differentiators": [
+        "Live prompts during the conversation, not only post-call review.",
+        "Manager-authored playbooks surfaced by call phase.",
+        "Coaching signals tied to rep behavior over time."
+      ],
+      "commonObjections": [
+        "We already record and score calls.",
+        "Reps do not want another screen during calls."
+      ],
+      "whatNotToSay": [
+        "Do not frame Gong as only a recorder.",
+        "Do not promise zero workflow change."
+      ],
+      "customerProofQuote": "Our managers coach the call while it is happening, not a week later."
+    },
+    { "id": "happy-009", "t": 138, "type": "phase_change", "phase": "demo" },
+    { "id": "happy-010", "t": 166, "type": "talk_ratio", "repPercent": 51, "buyerPercent": 49 },
+    { "id": "happy-011", "t": 214, "type": "transcript", "speaker": "buyer", "text": "My concern is whether reps will trust prompts while they are live with a prospect." },
+    {
+      "id": "happy-012",
+      "t": 218,
+      "type": "suggestion",
+      "suggestionType": "objection_cue",
+      "objection": "Rep adoption during live calls",
+      "suggestedResponse": "Anchor on configurability and low-interruption prompts, then ask where live help would be useful versus distracting."
+    },
+    { "id": "happy-013", "t": 248, "type": "phase_change", "phase": "objection" },
+    {
+      "id": "happy-014",
+      "t": 284,
+      "type": "suggestion",
+      "suggestionType": "sentiment_alert",
+      "severity": "low",
+      "reason": "Buyer is engaged but cautious about rep behavior change."
+    },
+    { "id": "happy-015", "t": 320, "type": "phase_change", "phase": "close" },
+    { "id": "happy-016", "t": 343, "type": "transcript", "speaker": "rep", "text": "I will send a follow-up with examples of low-interruption prompts and rollout paths." }
+  ]
+}

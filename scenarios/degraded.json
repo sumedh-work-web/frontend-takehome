@@ -1,0 +1,35 @@
+{
+  "id": "degraded",
+  "label": "Degraded stream",
+  "duration": 240,
+  "buyer": {
+    "name": "Avery Patel",
+    "company": "Vector Health"
+  },
+  "events": [
+    { "id": "degraded-001", "t": 2, "type": "phase_change", "phase": "intro" },
+    { "id": "degraded-002", "t": 10, "type": "transcript", "speaker": "buyer" },
+    { "id": "degraded-003", "t": 18, "type": "talk_ratio", "repPercent": 73 },
+    { "id": "degraded-004", "t": 24, "arrivalT": 55, "type": "transcript", "speaker": "buyer", "text": "We tried a point solution last year and reps ignored it." },
+    { "id": "degraded-005", "t": 39, "type": "suggestion", "suggestionType": "missed_question", "whyItMatters": "The buyer hinted at a failed rollout." },
+    { "id": "degraded-006", "t": 58, "type": "phase_change", "phase": "discovery" },
+    { "id": "degraded-007", "t": 70, "type": "suggestion", "suggestionType": "pricing_signal", "reason": "Buyer asked whether guidance is priced per rep or per team." },
+    { "id": "degraded-008", "t": 78, "type": "suggestion", "suggestionType": "sentiment_alert", "severity": "critical", "reason": "Severity value is outside the typed contract." },
+    {
+      "id": "degraded-009",
+      "t": 92,
+      "type": "suggestion",
+      "suggestionType": "battle_card",
+      "competitor": "Outreach",
+      "differentiators": [
+        "Surfaces live coaching prompts during the call.",
+        "Keeps manager playbooks close to rep workflow."
+      ],
+      "commonObjections": ["We already run sequences in Outreach."],
+      "whatNotToSay": []
+    },
+    { "id": "degraded-010", "t": 88, "arrivalT": 128, "type": "phase_change", "phase": "demo" },
+    { "id": "degraded-011", "t": 118, "type": "transcript", "speaker": "rep", "text": "Let me separate sequence automation from live call guidance." },
+    { "id": "degraded-012", "t": 150, "type": "phase_change", "phase": "close" }
+  ]
+}

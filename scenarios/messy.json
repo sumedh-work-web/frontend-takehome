@@ -1,0 +1,51 @@
+{
+  "id": "messy",
+  "label": "Messy call",
+  "duration": 390,
+  "buyer": {
+    "name": "Jordan Lee",
+    "company": "Summit Freight"
+  },
+  "events": [
+    { "id": "messy-001", "t": 4, "type": "phase_change", "phase": "intro" },
+    { "id": "messy-002", "t": 14, "type": "transcript", "speaker": "buyer", "text": "I only have twenty minutes, so I want to focus on enablement gaps." },
+    { "id": "messy-003", "t": 26, "type": "phase_change", "phase": "discovery" },
+    { "id": "messy-004", "t": 41.8, "type": "suggestion", "suggestionType": "missed_question", "question": "Ask which team owns call coaching today.", "whyItMatters": "Ownership will affect who needs to see live guidance and reporting." },
+    { "id": "messy-005", "t": 42.5, "type": "suggestion", "suggestionType": "objection_cue", "objection": "Time pressure", "suggestedResponse": "Offer to prioritize one workflow and confirm what would make the call useful." },
+    { "id": "messy-006", "t": 61, "type": "talk_ratio", "repPercent": 68, "buyerPercent": 32 },
+    { "id": "messy-007", "t": 79, "type": "transcript", "speaker": "buyer", "text": "We looked at Clari, but I am not sure it solves this exact live coaching problem." },
+    {
+      "id": "messy-008",
+      "t": 82,
+      "type": "suggestion",
+      "suggestionType": "battle_card",
+      "competitor": "Clari",
+      "differentiators": [
+        "Live rep guidance during active calls.",
+        "Playbook nudges matched to selling moments.",
+        "Signals designed for frontline adoption."
+      ],
+      "commonObjections": [
+        "Forecasting platform already covers revenue intelligence.",
+        "Managers do not want another dashboard."
+      ],
+      "whatNotToSay": [
+        "Do not turn this into a forecasting comparison.",
+        "Do not claim Clari lacks coaching features."
+      ],
+      "customerProofQuote": "The value was the prompt reps used in the moment."
+    },
+    { "id": "messy-009", "t": 86, "type": "transcript", "speaker": "buyer", "text": "Actually, let's park the Clari comparison. Our real issue is manager capacity." },
+    { "id": "messy-010", "t": 88, "type": "suggestion", "suggestionType": "sentiment_alert", "severity": "medium", "reason": "Buyer redirected away from competitor talk and sounds impatient." },
+    { "id": "messy-011", "t": 111, "type": "suggestion", "suggestionType": "missed_question", "question": "Ask what managers currently review live.", "whyItMatters": "This distinguishes coaching needs from reporting needs." },
+    { "id": "messy-011", "t": 114, "type": "suggestion", "suggestionType": "missed_question", "question": "Ask what managers currently review live.", "whyItMatters": "This distinguishes coaching needs from reporting needs." },
+    { "id": "messy-012", "t": 146, "type": "phase_change", "phase": "demo" },
+    { "id": "messy-013", "t": 168, "type": "transcript", "speaker": "rep", "text": "Let me show how a manager-authored prompt can appear during discovery." },
+    { "id": "messy-014", "t": 202, "type": "talk_ratio", "repPercent": 59, "buyerPercent": 41 },
+    { "id": "messy-015", "t": 231, "type": "transcript", "speaker": "buyer", "text": "Okay, but if prompts are wrong, reps will ignore the whole system." },
+    { "id": "messy-016", "t": 232, "type": "suggestion", "suggestionType": "objection_cue", "objection": "Trust in AI prompts", "suggestedResponse": "Acknowledge prompt quality risk and ask which prompts would need manager control." },
+    { "id": "messy-017", "t": 268, "type": "phase_change", "phase": "objection" },
+    { "id": "messy-018", "t": 312, "type": "suggestion", "suggestionType": "sentiment_alert", "severity": "high", "reason": "Buyer has gone quiet after implementation-risk discussion." },
+    { "id": "messy-019", "t": 344, "type": "phase_change", "phase": "close" }
+  ]
+}
