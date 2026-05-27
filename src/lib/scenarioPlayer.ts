@@ -27,6 +27,8 @@ export interface ScenarioDefinition {
   events: ScenarioEvent[];
 }
 
+export type EventListener = (event: ScenarioEvent) => void;
+
 const scenarioList = [
   happyScenario,
   messyScenario,
@@ -65,9 +67,20 @@ export class ScenarioPlayer {
   private intervalId: number | undefined;
   private startedAt = 0;
   private baseElapsed = 0;
+  private listeners = new Set<EventListener>();
+  private orderedEvents: ScenarioEvent[] = [];
+  private nextEmitIndex = 0;
 
   constructor() {
     makeAutoObservable(this, {}, { autoBind: true });
+    this.rebuildOrder();
+  }
+
+  onEvent(listener: EventListener) {
+    this.listeners.add(listener);
+    return () => {
+      this.listeners.delete(listener);
+    };
   }
 
   get scenario() {
@@ -104,8 +117,16 @@ export class ScenarioPlayer {
   }
 
   scrub(seconds: number) {
-    this.elapsed = clamp(seconds, 0, this.duration);
-    this.syncEmittedEvents();
+    const target = clamp(seconds, 0, this.duration);
+
+    if (target < this.elapsed) {
+      this.elapsed = target;
+      this.nextEmitIndex = this.findEmissionCursor(target);
+      this.emittedEvents = this.orderedEvents.slice(0, this.nextEmitIndex);
+    } else {
+      this.elapsed = target;
+      this.flushArrivals();
+    }
 
     if (this.isPlaying) {
       this.startedAt = performance.now();
@@ -118,23 +139,51 @@ export class ScenarioPlayer {
     this.scenarioId = scenarioId;
     this.elapsed = 0;
     this.emittedEvents = [];
+    this.nextEmitIndex = 0;
+    this.rebuildOrder();
   }
 
   dispose() {
     this.pause();
+    this.listeners.clear();
   }
 
   private tick() {
     const nextElapsed = this.baseElapsed + (performance.now() - this.startedAt) / 1000;
     this.elapsed = clamp(nextElapsed, 0, this.duration);
-    this.syncEmittedEvents();
+    this.flushArrivals();
 
     if (this.elapsed >= this.duration) {
       this.pause();
     }
   }
 
-  private syncEmittedEvents() {
-    this.emittedEvents = this.scenario.events.filter((event) => scheduledAt(event) <= this.elapsed);
+  private flushArrivals() {
+    while (
+      this.nextEmitIndex < this.orderedEvents.length &&
+      scheduledAt(this.orderedEvents[this.nextEmitIndex]) <= this.elapsed
+    ) {
+      const event = this.orderedEvents[this.nextEmitIndex];
+      this.nextEmitIndex += 1;
+      this.emittedEvents.push(event);
+      this.listeners.forEach((listener) => listener(event));
+    }
+  }
+
+  private findEmissionCursor(targetElapsed: number) {
+    let cursor = 0;
+    while (
+      cursor < this.orderedEvents.length &&
+      scheduledAt(this.orderedEvents[cursor]) <= targetElapsed
+    ) {
+      cursor += 1;
+    }
+    return cursor;
+  }
+
+  private rebuildOrder() {
+    this.orderedEvents = this.scenario.events
+      .slice()
+      .sort((a, b) => scheduledAt(a) - scheduledAt(b));
   }
 }

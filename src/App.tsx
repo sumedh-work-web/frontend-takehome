@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { CallHeader } from './components/CallHeader';
+import { CallSurface } from './components/CallSurface';
 import { DevControlBar } from './components/DevControlBar';
 
 const Shell = styled.main`
@@ -13,6 +14,7 @@ export default function App() {
     <>
       <Shell>
         <CallHeader />
+        <CallSurface />
       </Shell>
       <DevControlBar />
     </>

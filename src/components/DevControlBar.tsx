@@ -66,7 +66,7 @@ export const DevControlBar = observer(function DevControlBar() {
         min={0}
         max={player.duration}
         step={0.5}
-        tooltipVisible={false}
+        tooltip={{ open: false }}
         value={player.elapsed}
         onChange={(value) => player.scrub(Number(value))}
       />
