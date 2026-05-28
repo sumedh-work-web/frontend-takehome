@@ -54,7 +54,7 @@ Two stubs are scaffolded as starting points — restructure, rename, or split th
 
 ## What you build
 
-The rep-facing surface and whatever components, hooks, or stores you compose into it. Visual design, what's inside a battle card, how to handle collisions and stale suggestions, the empty state, what's persistent vs. reactive — all your call. We've stubbed `CallSurface` and `BattleCard` as a starting point, but if a different UI setup works better for you, use that — restructure, replace, or delete them as needed.
+The rep-facing surface and whatever components, hooks, or stores you compose into it. Visual design, what's inside a battle card, how to handle collisions and stale suggestions, the empty state, what's persistent vs. reactive — all your call. We've stubbed `CallSurface` and `BattleCard` as a starting point, but if a different UI setup works better for you, use that — restructure, replace, or delete them as needed. It is not required that you use both the CallSurface and/or the Battlecard components provided.
 
 ## NOTES.md
 
