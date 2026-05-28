@@ -16,6 +16,8 @@ If you're new to sales tooling:
 - **Battle card** — a short competitive reference the rep glances at when a competitor's name comes up.
 - **Call phases** — a sales call typically moves through `intro → discovery → demo → objection → close`. The AI tags the current phase as the conversation shifts.
 
+_This assignment is left open ended by design. We care more about the decisions you make and why. Also please make sure to document your thought process/decision making in the `NOTES.md` file._
+
 ## What's provided
 
 - Event types: [`src/types/events.ts`](src/types/events.ts)
