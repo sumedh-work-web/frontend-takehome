@@ -71,14 +71,20 @@ const StatusPill = styled.span<{ $tone?: 'default' | 'quiet' }>`
 `;
 
 const CoachingBody = styled.div<{ $centered?: boolean }>`
-  display: grid;
+  display: flex;
+  flex-direction: column;
   flex: 1;
   gap: 12px;
   padding: ${({ $centered }) => ($centered ? '22px' : '16px 22px 28px 22px')}; /* Standard padding with bottom safety space */
   min-height: 0;
   overflow-y: ${({ $centered }) => ($centered ? 'hidden' : 'auto')};
-  align-content: ${({ $centered }) => ($centered ? 'center' : 'start')};
-  justify-items: ${({ $centered }) => ($centered ? 'center' : 'stretch')};
+  align-items: ${({ $centered }) => ($centered ? 'center' : 'stretch')};
+  justify-content: ${({ $centered }) => ($centered ? 'center' : 'flex-start')};
+`;
+
+const HeroWrap = styled.div`
+  min-height: fit-content;
+  flex-shrink: 0;
 `;
 
 const SuggestionCard = styled.article<{ $tone?: 'default' | 'warning' | 'urgent'; $variant?: 'hero' | 'queued' }>`
@@ -589,7 +595,9 @@ export const LiveCoaching = observer(function LiveCoaching() {
       >
         {hero ? (
           <>
-            {renderSuggestion(hero, player.elapsed, () => handleDismiss(hero.event.id))}
+            <HeroWrap>
+              {renderSuggestion(hero, player.elapsed, () => handleDismiss(hero.event.id))}
+            </HeroWrap>
             
             {queued.length > 0 && (
               <>
