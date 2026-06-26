@@ -60,4 +60,6 @@ I would add a lightweight suggestion history so a rep can recover a recently exp
 
 I would add a **Click to Swap** interaction to the Hero/Queue stack. Clicking a queued suggestion would promote it to the Hero slot and push the current Hero back into the Queue, preserving the single-hero layout while allowing manual inspection.
 
+I would also add a minimal, non-obstructive floating teaser on long battle cards when a new queued cue arrives, so the rep can notice additional active coaching without losing focus or having to hunt for it below the fold.
+
 I would also add focused viewport-behavior tests around zoom levels and card-scoped scrolling, plus tighten keyboard support around the scenario controls and transcript rail.
