@@ -378,9 +378,7 @@ function renderSuggestion(suggestion: TimedSuggestion, elapsed: number, onDismis
   const { event, arrivedAt: time } = suggestion;
   const age = Math.max(0, elapsed - time);
   const delayed = isDelayedSuggestion(suggestion);
-  const decayPercent = event.suggestionType === 'battle_card'
-    ? Math.max(0, Math.min(1, (STALE_BATTLE_CARD_SECONDS - age) / STALE_BATTLE_CARD_SECONDS))
-    : Math.max(0, Math.min(1, (FRESH_SECONDS - age) / FRESH_SECONDS));
+  const decayPercent = Math.max(0, Math.min(1, (FRESH_SECONDS - age) / FRESH_SECONDS));
 
   if (event.suggestionType === 'battle_card') {
     const stale = age > FRESH_SECONDS;
@@ -390,7 +388,6 @@ function renderSuggestion(suggestion: TimedSuggestion, elapsed: number, onDismis
         delayed={delayed}
         stale={stale}
         onDismiss={onDismiss}
-        decayPercent={decayPercent}
       />
     );
   }
@@ -462,9 +459,7 @@ function renderQueuedSuggestion(suggestion: TimedSuggestion, elapsed: number, on
   const { event, arrivedAt: time } = suggestion;
   const age = Math.max(0, elapsed - time);
   const delayed = isDelayedSuggestion(suggestion);
-  const decayPercent = event.suggestionType === 'battle_card'
-    ? Math.max(0, Math.min(1, (STALE_BATTLE_CARD_SECONDS - age) / STALE_BATTLE_CARD_SECONDS))
-    : Math.max(0, Math.min(1, (FRESH_SECONDS - age) / FRESH_SECONDS));
+  const decayPercent = Math.max(0, Math.min(1, (FRESH_SECONDS - age) / FRESH_SECONDS));
 
   const tone = event.suggestionType === 'sentiment_alert' && event.severity === 'high'
     ? 'urgent'
@@ -500,7 +495,9 @@ function renderQueuedSuggestion(suggestion: TimedSuggestion, elapsed: number, on
         </DismissButton>
       </CardHeader>
       <h3 style={{ fontSize: '14px', fontWeight: 600 }}>{headline}</h3>
-      <DecayBar $tone={tone} $percent={decayPercent} />
+      {event.suggestionType !== 'battle_card' && (
+        <DecayBar $tone={tone} $percent={decayPercent} />
+      )}
     </SuggestionCard>
   );
 }

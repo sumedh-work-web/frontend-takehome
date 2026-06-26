@@ -33,17 +33,6 @@ const DismissButton = styled.button`
   }
 `;
 
-const DecayBar = styled.div<{ $percent: number; $stale?: boolean }>`
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 4px;
-  width: ${({ $percent }) => `${$percent * 100}%`};
-  background: ${({ $stale, theme }) => ($stale ? theme.colors.slate[400] : theme.colors.accent)};
-  opacity: 0.85;
-  transition: width 150ms linear;
-`;
-
 interface BattleCardProps {
   event: BattleCardSuggestionEvent;
   delayed?: boolean;
@@ -51,7 +40,6 @@ interface BattleCardProps {
   isExpanded?: boolean;
   onToggleExpand?: (expanded: boolean) => void;
   onDismiss?: () => void;
-  decayPercent?: number;
 }
 
 const Card = styled.article<{ $stale?: boolean }>`
@@ -311,7 +299,6 @@ export function BattleCard({
   isExpanded = false,
   onToggleExpand,
   onDismiss,
-  decayPercent,
 }: BattleCardProps) {
   const [localExpanded, setLocalExpanded] = useState(false);
   const expanded = onToggleExpand ? isExpanded : localExpanded;
@@ -452,9 +439,6 @@ export function BattleCard({
             {event.customerProofQuote && <Proof>“{event.customerProofQuote}”</Proof>}
           </DetailStack>
         </>
-      )}
-      {decayPercent !== undefined && (
-        <DecayBar $percent={decayPercent} $stale={stale} />
       )}
     </Card>
   );
