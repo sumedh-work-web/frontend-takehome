@@ -54,8 +54,6 @@ What accessibility, responsiveness, or performance tradeoffs did you make, and w
 
 What would you cut, change, or add with another day?
 
-During a live call, recent context is more valuable than complete history, so the transcript prioritizes nearby evidence over archival browsing.
-
 I would add a lightweight suggestion history so a rep can recover a recently expired prompt without re-scrubbing the call.
 
 I would add a **Click to Swap** interaction to the Hero/Queue stack. Clicking a queued suggestion would promote it to the Hero slot and push the current Hero back into the Queue, preserving the single-hero layout while allowing manual inspection.
