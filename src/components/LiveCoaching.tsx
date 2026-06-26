@@ -44,7 +44,7 @@ const Frame = styled.div`
   min-height: 0;
 `;
 
-const StatusPill = styled.span<{ $tone?: 'default' | 'quiet' | 'paused' }>`
+const StatusPill = styled.span<{ $tone?: 'default' | 'quiet' }>`
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -52,11 +52,10 @@ const StatusPill = styled.span<{ $tone?: 'default' | 'quiet' | 'paused' }>`
   border-radius: 999px;
   background: ${({ $tone, theme }) => {
     if ($tone === 'quiet') return theme.colors.background;
-    if ($tone === 'paused') return 'rgba(107, 114, 128, 0.14)';
     return theme.colors.accentLight;
   }};
   color: ${({ $tone, theme }) => {
-    if ($tone === 'quiet' || $tone === 'paused') return theme.colors.muted;
+    if ($tone === 'quiet') return theme.colors.muted;
     return theme.colors.accent;
   }};
   font-size: 11px;
